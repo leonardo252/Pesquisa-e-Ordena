@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import matplotlib.pyplot as plt
 from random import randint
 import timeit
@@ -52,6 +53,7 @@ def selectionSort(vetor):
 	return vetor
 
 numsT = [1000,10000,20000,30000,40000,50000,60000,70000,80000,90000,100000]
+#numsT = [10, 100, 200]
 
 def casoMedio(nums0):
 	nums = nums0
@@ -59,7 +61,7 @@ def casoMedio(nums0):
 	for r in nums:
 	    print(r)
 	    vector = geraLista(r)
-	    tempo = timeit.timeit("ordena({})".format(vector),setup="from __main__ import ordena",number=1)
+	    tempo = timeit.timeit("selectionSort({})".format(vector),setup="from __main__ import selectionSort",number=1)
 	    time.append(tempo)
 
 	desenhaGraficoSuave(nums, time,'Caso Medio',211, "Nº de Elementos", "Tempo(s)")
@@ -70,7 +72,7 @@ def piorCaso(nums1):
 	for r in nums:
 		print (r)
 		vector1 = listaDecrescente(r)
-		tempo = timeit.timeit("ordena({})".format(vector1),setup="from __main__ import ordena",number=1)
+		tempo = timeit.timeit("selectionSort({})".format(vector1),setup="from __main__ import selectionSort",number=1)
 		time1.append(tempo)
 
 	desenhaGraficoSuave(nums, time1, 'Pior Caso',212, "Nº de Elementos", "Tempo(s)")
@@ -81,10 +83,10 @@ def melhorCaso(nums2):
 	for r in nums:
 		print (r)
 		vector1 = listaCrescente(r)
-		tempo = timeit.timeit("ordena({})".format(vector1),setup="from __main__ import ordena",number=1)
-		time1.append(tempo)
+		tempo = timeit.timeit("selectionSort({})".format(vector1),setup="from __main__ import selectionSort",number=1)
+		time2.append(tempo)
 
-	desenhaGraficoSuave(nums, time1, 'Melhro Caso',212, "Nº de Elementos", "Tempo(s)")
+	desenhaGraficoSuave(nums, time2, 'Melhro Caso',212, "Nº de Elementos", "Tempo(s)")
 
 
 casoMedio(numsT)
