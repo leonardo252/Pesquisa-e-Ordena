@@ -58,7 +58,6 @@ def ordena(vector):
     return vector
 
 nums = [1000,10000,20000,30000,40000,50000,60000,70000,80000,90000,100000]
-#nums = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
 
 def casoMedio(nums1):
 	nums = nums1
@@ -82,21 +81,8 @@ def piorCaso(nums1):
 
 	desenhaGraficoSuave(nums, time1, 'Pior Caso',212, "Nº de Elementos", "Tempo(s)")
 
-'''
-if __name__ == '__main__':
 
-	ordena1 = Thread(target=casoMedio,args=[nums])
-	ordena2 = Thread(target=piorCaso,args=[nums])
-
-	ordena1.start()
-	ordena2.start()
-
-	plt.show()
-'''
 casoMedio(nums)
 piorCaso(nums)
-
 plt.show()
-#print(tempo)
 
-#print(ordena(vector))
