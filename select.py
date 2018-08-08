@@ -59,7 +59,7 @@ def casoMedio(nums0):
 	for r in nums:
 	    print(r)
 	    vector = geraLista(r)
-	    tempo = timeit.timeit("ordena({})".format(vector),setup="from __main__ import ordena",number=1)
+	    tempo = timeit.timeit("selectionSort({})".format(vector),setup="from __main__ import selectionSort",number=1)
 	    time.append(tempo)
 
 	desenhaGraficoSuave(nums, time,'Caso Medio',211, "Nº de Elementos", "Tempo(s)")
@@ -70,7 +70,7 @@ def piorCaso(nums1):
 	for r in nums:
 		print (r)
 		vector1 = listaDecrescente(r)
-		tempo = timeit.timeit("ordena({})".format(vector1),setup="from __main__ import ordena",number=1)
+		tempo = timeit.timeit("selectionSort({})".format(vector1),setup="from __main__ import selectionSort",number=1)
 		time1.append(tempo)
 
 	desenhaGraficoSuave(nums, time1, 'Pior Caso',212, "Nº de Elementos", "Tempo(s)")
@@ -81,14 +81,13 @@ def melhorCaso(nums2):
 	for r in nums:
 		print (r)
 		vector1 = listaCrescente(r)
-		tempo = timeit.timeit("ordena({})".format(vector1),setup="from __main__ import ordena",number=1)
+		tempo = timeit.timeit("selectionSort({})".format(vector1),setup="from __main__ import selectionSort",number=1)
 		time1.append(tempo)
 
-	desenhaGraficoSuave(nums, time1, 'Melhro Caso',212, "Nº de Elementos", "Tempo(s)")
+	desenhaGraficoSuave(nums, time2, 'Melhro Caso',213, "Nº de Elementos", "Tempo(s)")
 
 
 casoMedio(numsT)
 piorCaso(numsT)
-
 melhorCaso(numsT)
 plt.show()
