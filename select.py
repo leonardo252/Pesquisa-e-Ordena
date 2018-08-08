@@ -53,7 +53,7 @@ def selectionSort(vetor):
 	return vetor
 
 numsT = [1000,10000,20000,30000,40000,50000,60000,70000,80000,90000,100000]
-#numsT = [10, 100, 200]
+
 
 def casoMedio(nums0):
 	nums = nums0
