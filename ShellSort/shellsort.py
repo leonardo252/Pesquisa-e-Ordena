@@ -40,24 +40,27 @@ def listaDecrescente(tam):
     return lista
 
 def shellSort(vetor):
+    o = 0
     meio = len(vetor) // 2
     while meio > 0:
-        
         for i in range(meio, len(vetor)):
             val = vetor[i]
             j = i
             while j >= meio and vetor[j - meio] > val:
                 vetor[j] = vetor[j - meio]
                 j -= meio
+                o=o+1
             vetor[j] = val
-        meio = meio // 2
+        meio = meio // 2        
+    interation.append(o)
     return vetor
 
     
 
 numsT = [1000,10000,20000,30000,40000,50000,60000,70000,80000,90000,100000]
+#numsT = [10,20,30,40,50,60,70,80,90,100]
 
-
+interation =[]
 
 def casoMedio(nums0):
     nums = nums0
@@ -67,9 +70,10 @@ def casoMedio(nums0):
         vector = geraLista(r)
         tempo = timeit.timeit("shellSort({})".format(vector),setup="from __main__ import shellSort",number=1)
         time.append(tempo)
-
-    desenhaGraficoSuave(nums, time,'Shell Sort', "Caso Medio",111, "Nº de Elementos", "Tempo(s)")
-
+    
+    #desenhaGraficoSuave(nums, time,'Shell Sort', "Caso Medio",111, "Nº de Elementos", "Tempo(s)")
+    desenhaGraficoSuave(nums, interation,'Shell Sort', "Caso Medio",111, "Nº de Elementos", "Nº de Interalções")
+    
 def piorCaso(nums1):
     nums=nums1
     time1=[]
@@ -79,7 +83,8 @@ def piorCaso(nums1):
         tempo = timeit.timeit("shellSort({})".format(vector1),setup="from __main__ import shellSort",number=1)
         time1.append(tempo)
 
-    desenhaGraficoSuave(nums, time1, 'Shell Sort', "Pior Caso",111, "Nº de Elementos", "Tempo(s)")
+    #desenhaGraficoSuave(nums, time1, 'Shell Sort', "Pior Caso",111, "Nº de Elementos", "Tempo(s)")
+    desenhaGraficoSuave(nums, interation, 'Shell Sort', "Pior Caso",111, "Nº de Elementos", "Nº de Interalções")
 
 def melhorCaso(nums2):
     nums=nums2
@@ -89,11 +94,15 @@ def melhorCaso(nums2):
         vector1 = listaCrescente(r)
         tempo = timeit.timeit("shellSort({})".format(vector1),setup="from __main__ import shellSort",number=1)
         time2.append(tempo)
-
-    desenhaGraficoSuave(nums, time2, 'Shell Sort', "Melhor Caso",111, "Nº de Elementos", "Tempo(s)")
+    
+    #desenhaGraficoSuave(nums, time2, 'Shell Sort', "Melhor Caso",111, "Nº de Elementos", "Tempo(s)")
+    desenhaGraficoSuave(nums, interation, 'Shell Sort', "Melhor Caso", 111, "Nº de Elementos", "Nº de Interalções")
+    
 
 
 casoMedio(numsT)
+interation = []
 piorCaso(numsT)
+interation = []
 melhorCaso(numsT)
 plt.show()
