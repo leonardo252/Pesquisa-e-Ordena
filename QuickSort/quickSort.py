@@ -3,7 +3,7 @@ from random import randint
 import timeit
 import numpy as np
 import scipy.interpolate as interpolate
-from threading import Thread
+
 
 def desenhaGraficoSuave(x,y,l,k,n, xl = "Nº de Elementos", yl = "Tempo(s)"):
     xnew = np.linspace(min(x), max(x), 10 * (max(x) - min(x)))
